@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { assets } from '../assets/assets'
+import { AppContext } from '../context/AppContext'
 
 const Login = () => {
 
     const [state, setState] = useState("Login")
+
+
+    const { setShowLogin } = useContext(AppContext)
 
     // stop scrolling when login form is open
     useEffect(() => {
@@ -62,7 +66,9 @@ const Login = () => {
                         </p>
                 }
 
-                <img src={assets.cross_icon} alt="" className='absolute top-5 right-5 cursor-pointer' />
+                <img
+                    onClick={() => setShowLogin(false)}
+                    src={assets.cross_icon} alt="" className='absolute top-5 right-5 cursor-pointer' />
             </form>
         </div>
     )

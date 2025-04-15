@@ -2,36 +2,12 @@ import { useContext } from 'react'
 import { assets } from '../assets/assets'
 import { Link, useNavigate } from 'react-router-dom'
 import { AppContext } from '../context/AppContext'
-import { useGSAP } from '@gsap/react'
-import { gsap } from 'gsap'
+
 
 const Navbar = () => {
-    const tl = gsap.timeline()
+ 
 
-    // Animation using GSAP
-    useGSAP(() => {
-        tl.from('.logo', {
-            x: -150,
-            opacity: 0,
-            duration: 1.2,
-            ease: 'power4.out',
-            rotate: -15,
-            scale: 0.8
-          });
-        
-          tl.from('.nav', {
-            y: -100,
-            opacity: 0,
-            rotate: 200,
-            duration: 1.2,
-            stagger: 0.15,
-            ease: 'back.out(1.7)', 
-            scale: 0.95
-          }, "-=0.8"); 
-
-    })
-
-    const { user } = useContext(AppContext)
+    const { user, setShowLogin } = useContext(AppContext)
 
     const navigate = useNavigate()
 
@@ -67,7 +43,9 @@ const Navbar = () => {
                             <p
                                 onClick={() => navigate('/buy')}
                                 className='nav cursor-pointer'>Pricing</p>
-                            <button className='nav bg-zinc-900 text-white px-6 py-2 sm:px-10 text-sm rounded-full'>Login</button>
+                            <button className='nav bg-zinc-900 text-white px-6 py-2 sm:px-10 text-sm rounded-full'
+                                onClick={() => setShowLogin(true)}>
+                                Login</button>
                         </div>
                 }
             </div>

@@ -1,35 +1,11 @@
 import React from 'react'
 import { stepsData } from '../assets/assets'
 
-import { useGSAP } from '@gsap/react'
-import { gsap } from 'gsap'
 
 
 const Steps = () => {
 
-    useGSAP(() => {
-        const tl = gsap.timeline()
-
-        tl.from('.h1', {
-            y: 100,
-            opacity: 0,
-            duration: 1.5,
-            scale: 3,
-            ease: 'bounce',
-        })
-        tl.from('.p1', {
-            x: -200,
-            rotate: 180,
-            opacity: 0,
-            ease: 'power1'
-        })
-        tl.from('.step', {
-            x: 500,
-            opacity: 0,
-            duration: 1.5,
-        })
-    })
-
+  
     return (
         <div className='flex flex-col items-center justify-center my-32'>
 

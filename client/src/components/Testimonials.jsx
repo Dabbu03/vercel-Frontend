@@ -1,34 +1,10 @@
 import React from 'react'
 import { assets, testimonialsData } from '../assets/assets'
-import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
+
 
 const Testimonials = () => {
 
-    useGSAP(() => {
-        const tl = gsap.timeline()
-
-        tl.from('.p1', {
-            y: 100,
-            opacity: 0,
-            duration: 1.5,
-            scale: 3,
-        })
-        tl.from('.testi', {
-            x: 500,
-            opacity: 0,
-            duration: 1.5,
-        })
-
-        tl.from('.h1', {
-            y: 100,
-            opacity: 0,
-            duration: 1.5,
-            scale: 3,
-            ease: 'bounce',
-        })
-    })
-
+ 
     return (
         
         <div className='flex flex-col-reverse items-center justify-center my-20 py-12'>

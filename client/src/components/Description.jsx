@@ -1,38 +1,8 @@
 import React from 'react'
 import { assets } from '../assets/assets'
-import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
 
 const Description = () => {
 
-  useGSAP(() => {
-    const tl = gsap.timeline()
-    tl.from('.h1', {
-      x: -300,
-      rotate: 260,
-      duration: 1.2,
-      ease: 'power1.inOut'
-    })
-    tl.from('.p1', {
-      y: -500,
-      opacity: 0,
-      rotate: 720,
-      duration: 0.6,
-    })
-    tl.from('.img1', {
-      y: 300,
-      scale: 0.5,
-      duration: 1.5,
-      opacity: 0,
-    })
-
-    tl.from('.d1', {
-      y: 200,
-      opacity: 0,
-      duration: 1.5,
-      ease: 'power1.inOut',
-    })
-  })
 
   return (
     <div className='flex flex-col items-center justify-center my-24 p-6 md:px-28'>
