@@ -37,6 +37,7 @@ const loginUser = async (req, res) => {
     try {
 
         const { email, password } = req.body
+
         if (!email || !password) {
             return res.status(400).json({ message: "Please fill all the fields", success: false })
         }
@@ -63,4 +64,18 @@ const loginUser = async (req, res) => {
     }
 }
 
-export { registerUser, loginUser };
+const userCredits = async (req, res) => {
+    try {
+        const userId = req.user.id;
+
+        const user = await userModel.findById(userId)
+
+        res.json({ success: true, credit: user.creditBalance, user: { name: user.name } })
+
+    } catch (error) {
+        console.log(error.message)
+        res.json({ success: false, message: "Error in Credits user" })
+    }
+}
+
+export { registerUser, loginUser, userCredits };
