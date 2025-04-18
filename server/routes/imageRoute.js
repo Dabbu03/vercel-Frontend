@@ -3,8 +3,8 @@ import { generateImage } from '../controllers/imageController.js'
 import userAuth from '../middleware/auth.js';
 
 
-const imgaeRouter = express.Router()
+const imageRouter = express.Router()
 
-imgaeRouter.post('/generate', userAuth, generateImage)
+imageRouter.post('/generate', userAuth, generateImage)
 
-export default imgaeRouter
+export default imageRouter
