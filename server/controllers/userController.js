@@ -85,68 +85,101 @@ const razorpayInstance = new razorpay({
     key_id: process.env.RAZORPAY_KEY_ID,
     key_secret: process.env.RAZORPAY_KEY_SECRET,
 })
-
 const paymentRazorpay = async (req, res) => {
     try {
-        const userId = req.user.id
-        const { planId } = req.body
-        const userData = await userModel.findById(userId)
+        const userId = req.user.id;
+        const { planId } = req.body;
+        const userData = await userModel.findById(userId);
 
         if (!userData || !planId) {
-            return res.status(400).json({ message: "Please fill all the fields", success: false })
+            return res.status(400).json({ message: "Please fill all the fields", success: false });
         }
 
-        let credits, plan, amount, date
+        let credits, plan, amount, date;
 
         switch (planId) {
             case 'Basic':
-                plan = "Basic"
-                credits = 100
-                amount = 10
+                plan = "Basic";
+                credits = 100;
+                amount = 10;
                 break;
             case 'Advanced':
-                plan = "Advanced"
-                credits = 500
-                amount = 50
+                plan = "Advanced";
+                credits = 500;
+                amount = 50;
                 break;
             case 'Business':
-                plan = "Business"
-                credits = 5000
-                amount = 250
+                plan = "Business";
+                credits = 5000;
+                amount = 250;
                 break;
             default:
-                return res.status(400).json({ message: "Invalid plan", success: false })
+                return res.status(400).json({ message: "Invalid plan", success: false });
         }
-        date = Date.now()
+        date = Date.now();
 
         const transactionData = {
             userId,
             plan,
             credits,
             amount,
-            data,
-        }
+            date,
+        };
 
-        const newTransaction = await transactionModel.create(transactionData)
+        const newTransaction = await transactionModel.create(transactionData);
 
         const options = {
             amount: amount * 100,
             currency: process.env.CURRENCY,
             receipt: newTransaction._id,
-        }
+        };
 
-        await razorpayInstance.orders.create(options, (error, order) => {
-            if (error) {
-                console.log(error)
-                return res.status(500).json({ message: "Error in creating order", success: false })
-            }
-            res.json({ success: true, order })
-        })
+        // Use promise version instead of callback
+        const order = await razorpayInstance.orders.create(options);
+        res.json({ success: true, order });
 
     } catch (error) {
-        console.log(error.message)
-        res.json({ success: false, message: "Error in payment" })
+        console.log("Payment Error:", error);  // Log the actual error
+        res.status(500).json({
+            success: false,
+            message: "Error in payment",
+            error: error.message  // Send error message for debugging
+        });
+    }
+};
+
+
+const verifyRazorpay = async (req, res) => {
+    try {
+        const { razorpay_order_id } = req.body
+
+        const orderInfo = await razorpayInstance.orders.fetch(razorpay_order_id)
+
+        if (orderInfo.status === 'paid') {
+            const transactionData = await transactionModel.findById(orderInfo.receipt)
+
+            if (transactionData.payment) {
+                return res.status(400).json({ message: "Payment already verified", success: false })
+            }
+
+            const userData = await userModel.findById(transactionData.userId)
+
+            const creditBalance = userData.creditBalance + transactionData.credits
+            await userModel.findByIdAndUpdate(userData._id, { creditBalance }, { new: true })
+
+            await transactionModel.findByIdAndUpdate(transactionData._id , {payment: true}, {new: true})
+
+            res.json({ success: true, message: "Payment verified successfully" })
+        } else {
+            res.json({ success: false, message: "Payment not verified" })
+        }
+
+
+    } catch (error) {
+        console.log("Verify Razorpay Error:", error);
+        res.json({ success: false, message: "Error in verifying payment" })
     }
 }
 
-export { registerUser, loginUser, userCredits, paymentRazorpay };
+
+export { registerUser, loginUser, userCredits, paymentRazorpay,  verifyRazorpay };

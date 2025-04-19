@@ -29,4 +29,4 @@ const transactionSchema = new mongoose.Schema({
 
 const transactionModel = mongoose.model.transaction || mongoose.model("transaction", transactionSchema)
 
-export default userModel                           
+export default transactionModel                           
