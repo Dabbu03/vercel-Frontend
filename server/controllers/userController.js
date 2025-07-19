@@ -107,12 +107,12 @@ const paymentRazorpay = async (req, res) => {
                 break;
             case 'Advanced':
                 plan = "Advanced";
-                credits = 3;
+                credits = 10;
                 amount = 50;
                 break;
             case 'Business':
                 plan = "Business";
-                credits = 4;
+                credits = 25;
                 amount = 250;
                 break;
             default:
@@ -131,7 +131,7 @@ const paymentRazorpay = async (req, res) => {
         const newTransaction = await transactionModel.create(transactionData);
 
         const options = {
-            amount: amount,
+            amount: amount * 100,
             currency: process.env.CURRENCY,
             receipt: newTransaction._id,
         };
@@ -168,7 +168,7 @@ const verifyRazorpay = async (req, res) => {
 
             const creditBalance = userData.creditBalance + transactionData.credits
             await userModel.findByIdAndUpdate(userData._id, { creditBalance }, { new: true })
-
+            
             await transactionModel.findByIdAndUpdate(transactionData._id, { payment: true }, { new: true })
 
             res.json({ success: true, message: "Payment verified successfully" })

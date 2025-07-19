@@ -45,7 +45,7 @@ const Header = () => {
                 transition={{ delay: 0.5, duration: 2 }}
 
                 className='head2 text-4xl max-w-[300px] sm:text-7xl sm:max-w-[590px] mx-auto mt-10 text-center'>
-                Text to <span className='text-slate-700'>Image</span> , in seconds.
+                Text to <span className='text-purple-400'>Image</span> , in seconds.
             </motion.h1>
 
             <motion.p
@@ -89,8 +89,9 @@ const Header = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.2, duration: 0.8 }}
 
-
-                className='txt mt-2 text-neutral-600'>Generate images from PromptPix</motion.p>
+                className='txt mt-2 text-neutral-600'>Generate images from 
+                <span className='text-purple-500 text-xl'> Pixora</span>
+                </motion.p>
 
         </motion.div>
     )

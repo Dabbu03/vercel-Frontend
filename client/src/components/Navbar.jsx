@@ -14,8 +14,8 @@ const Navbar = () => {
     return (
         <div className='logo flex items-center justify-between py-4'>
             <Link to='/'>
-                <h1 className='text-3xl font-bold text-black-600 cursor-pointer hover:scale-105 transition duration-300'>
-                    PromptPix
+                <h1 className='text-2xl font-extralight sm:text-3xl md:text-4xl lg:text-5xl  cursor-pointer hover:scale-105 transition-transform duration-300 '>
+                    Pixora
                 </h1>
             </Link>
 
