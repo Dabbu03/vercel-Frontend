@@ -89,9 +89,12 @@ const Header = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.2, duration: 0.8 }}
 
-                className='txt mt-2 text-neutral-600'>Generate images from 
-                <span className='text-purple-500 text-xl'> Pixora</span>
-                </motion.p>
+                className='txt mt-2 text-neutral-600'>Generate images from
+                <span className='text-purple-500 text-xl relative'> Pixora
+                    
+                    <span className="absolute left-0 bottom-0 w-full h-[2px] bg-purple-400 rotate-[-4deg] rounded-full origin-left"></span>
+                </span>
+            </motion.p>
 
         </motion.div>
     )
