@@ -14,7 +14,9 @@ const Navbar = () => {
     return (
         <div className='logo flex items-center justify-between py-4'>
             <Link to='/'>
-                <img src={assets.logo} alt="" className='w-28 sm:w-32 lg:w-40' />
+                <h1 className='text-3xl font-bold text-black-600 cursor-pointer hover:scale-105 transition duration-300'>
+                    PromptPix
+                </h1>
             </Link>
 
             <div>

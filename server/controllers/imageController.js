@@ -3,6 +3,7 @@ import FormData from "form-data";
 import axios from "axios";
 
 export const generateImage = async (req, res) => {
+
     try {
         const { prompt } = req.body;
         const userId = req.user.id;

@@ -7,6 +7,7 @@ import jwt from "jsonwebtoken";
 import razorpay from "razorpay";
 
 const registerUser = async (req, res) => {
+
     try {
         const { name, email, password } = req.body
         if (!name || !email || !password) {
@@ -85,6 +86,7 @@ const razorpayInstance = new razorpay({
     key_id: process.env.RAZORPAY_KEY_ID,
     key_secret: process.env.RAZORPAY_KEY_SECRET,
 })
+
 const paymentRazorpay = async (req, res) => {
     try {
         const userId = req.user.id;
@@ -100,17 +102,17 @@ const paymentRazorpay = async (req, res) => {
         switch (planId) {
             case 'Basic':
                 plan = "Basic";
-                credits = 100;
+                credits = 2;
                 amount = 10;
                 break;
             case 'Advanced':
                 plan = "Advanced";
-                credits = 500;
+                credits = 3;
                 amount = 50;
                 break;
             case 'Business':
                 plan = "Business";
-                credits = 5000;
+                credits = 4;
                 amount = 250;
                 break;
             default:
@@ -129,7 +131,7 @@ const paymentRazorpay = async (req, res) => {
         const newTransaction = await transactionModel.create(transactionData);
 
         const options = {
-            amount: amount * 100,
+            amount: amount,
             currency: process.env.CURRENCY,
             receipt: newTransaction._id,
         };
@@ -167,7 +169,7 @@ const verifyRazorpay = async (req, res) => {
             const creditBalance = userData.creditBalance + transactionData.credits
             await userModel.findByIdAndUpdate(userData._id, { creditBalance }, { new: true })
 
-            await transactionModel.findByIdAndUpdate(transactionData._id , {payment: true}, {new: true})
+            await transactionModel.findByIdAndUpdate(transactionData._id, { payment: true }, { new: true })
 
             res.json({ success: true, message: "Payment verified successfully" })
         } else {
@@ -182,4 +184,4 @@ const verifyRazorpay = async (req, res) => {
 }
 
 
-export { registerUser, loginUser, userCredits, paymentRazorpay,  verifyRazorpay };
+export { registerUser, loginUser, userCredits, paymentRazorpay, verifyRazorpay };

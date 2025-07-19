@@ -44,7 +44,9 @@ const Header = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 2 }}
 
-                className='head2 text-4xl max-w-[300px] sm:text-7xl sm:max-w-[590px] mx-auto mt-10 text-center'>Turn Text to <span className='text-blue-600'>image</span> , in seconds.</motion.h1>
+                className='head2 text-4xl max-w-[300px] sm:text-7xl sm:max-w-[590px] mx-auto mt-10 text-center'>
+                Text to <span className='text-slate-700'>Image</span> , in seconds.
+            </motion.h1>
 
             <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -77,7 +79,7 @@ const Header = () => {
                         whileHover={{ scale: 1.2, duration: 0.3 }}
 
                         className='rounded hover:scale-1.5 transition-all duration-300 cursor-pointer max-sm:w-10'
-                        src={index % 2 === 0 ? assets.sample_img_2 : assets.sample_img_1}
+                        src={index % 2 === 0 ? assets.home1 : assets.sample_img_2}
                         key={index} width={70} alt="no_images" />
                 ))}
             </motion.div>
@@ -88,7 +90,7 @@ const Header = () => {
                 transition={{ delay: 1.2, duration: 0.8 }}
 
 
-                className='txt mt-2 text-neutral-600'>Generate images from imagify</motion.p>
+                className='txt mt-2 text-neutral-600'>Generate images from PromptPix</motion.p>
 
         </motion.div>
     )

@@ -15,6 +15,7 @@ const Home = () => {
       <GenerateBtn />
     </div>
   )
+
 }
 
 export default Home

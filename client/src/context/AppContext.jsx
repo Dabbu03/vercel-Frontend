@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 export const AppContext = createContext()
 
 const AppContextProvider = (props) => {
+
     const [user, setUser] = useState(null)
     const [showLogin, setShowLogin] = useState(false)
 
@@ -72,7 +73,7 @@ const AppContextProvider = (props) => {
     }, [token])
 
     const value = {
-        user, setUser, showLogin, setShowLogin, backendUrl, token, setToken, credit, setCredit, loadCreditsData, logout , generateImage
+        user, setUser, showLogin, setShowLogin, backendUrl, token, setToken, credit, setCredit, loadCreditsData, logout, generateImage
     }
 
     return (
