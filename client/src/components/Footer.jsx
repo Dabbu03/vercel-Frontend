@@ -13,7 +13,7 @@ const Footer = () => {
             <p className='flex-1 border-l border-gray-500 pl-4 text-sm text-gray-500 max-sm:hidden'>Copyright @DipinKharayat.dev | All right reserved.</p>
 
             <div className='flex gap-2.5'>
-                <a href="" target='_blank'><img src={assets.instagram_icon} width={35} alt="" />
+                <a href="https://instagram.com/dipinkharayat_03" target='_blank'><img src={assets.instagram_icon} width={35} alt="" />
                 </a>
             </div>
         </div>
