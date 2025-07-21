@@ -13,16 +13,6 @@ const Footer = () => {
       <p className='flex-1 border-l border-gray-500 pl-4 text-sm text-gray-500 max-sm:hidden'>
         © DipinKharayat.dev | All rights reserved.
       </p>
-
-      <div className='flex gap-2.5'>
-        <a
-          href='https://instagram.com/dipinkharayat_03'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <img src={assets.instagram_icon} width={35} alt='Instagram' />
-        </a>
-      </div>
     </div>
   )
 }
