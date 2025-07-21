@@ -16,14 +16,6 @@ const Footer = () => {
 
       <div className='flex gap-3 text-2xl text-gray-600'>
         <a
-          href='https://instagram.com/dipinkharayat_03'
-          target='_blank'
-          rel='noopener noreferrer'
-          className='hover:text-pink-500 transition-colors duration-300'
-        >
-          <FaInstagram />
-        </a>
-        <a
           href='https://github.com/Dipin003'
           target='_blank'
           rel='noopener noreferrer'
