@@ -83,6 +83,10 @@ const Testimonials = () => {
                         <CreateCard key={index} card={card} />
                     ))}
                 </div>
+<<<<<<< HEAD
+=======
+               
+>>>>>>> 315addf6205445a73bd5758bf09b61cabd48acb1
 
             </div>
         </>

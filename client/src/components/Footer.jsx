@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { Link } from 'react-router-dom'
 import { FaGithub, FaInstagram } from 'react-icons/fa'
+=======
+import { Link } from 'react-router-dom';
+import { FaGithub, FaInstagram } from 'react-icons/fa';
+>>>>>>> 315addf6205445a73bd5758bf09b61cabd48acb1
 
 const Footer = () => {
   return (
@@ -15,10 +20,22 @@ const Footer = () => {
       </p>
 
       <div className='flex gap-3 text-2xl text-gray-600'>
+<<<<<<< HEAD
+=======
+        <a
+          href='https://github.com/Dipin003'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='hover:text-black transition-colors duration-300'
+        >
+          <FaGithub />
+        </a>
+>>>>>>> 315addf6205445a73bd5758bf09b61cabd48acb1
         <a
           href='https://instagram.com/dipinkharayat_03'
           target='_blank'
           rel='noopener noreferrer'
+<<<<<<< HEAD
           className='hover:text-pink-500 transition-colors duration-300'
         >
           <FaInstagram />
@@ -30,10 +47,15 @@ const Footer = () => {
           className='hover:text-black transition-colors duration-300'
         >
           <FaGithub />
+=======
+          className='hover:text-pink-600 transition-colors duration-300'
+        >
+          <FaInstagram />
+>>>>>>> 315addf6205445a73bd5758bf09b61cabd48acb1
         </a>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
