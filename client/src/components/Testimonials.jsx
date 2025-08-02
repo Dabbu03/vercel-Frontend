@@ -40,12 +40,11 @@ const Testimonials = () => {
                     <span className="text-xs text-slate-500">{card.handle}</span>
                 </div>
             </div>
-            <p className="text-sm py-4 text-gray-800">Radiant made undercutting all of our competitors an absolute
-                breeze.</p>
+            <p className="text-sm py-4 text-gray-800">Radiant made undercutting all of our competitors an absolute breeze.</p>
             <div className="flex items-center justify-between text-slate-500 text-xs">
                 <div className="flex items-center gap-1">
                     <span>Posted on</span>
-                    <a href="https://x.com" target="_blank" className="hover:text-sky-500">
+                    <a href="https://x.com" target="_blank" className="hover:text-sky-500" rel="noopener noreferrer">
                         <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="m.027 0 4.247 5.516L0 10h.962l3.742-3.926L7.727 10H11L6.514 4.174 10.492 0H9.53L6.084 3.616 3.3 0zM1.44.688h1.504l6.64 8.624H8.082z" fill="currentColor" />
                         </svg>
@@ -59,38 +58,31 @@ const Testimonials = () => {
     return (
         <>
             <style>{`
-            @keyframes marqueeScroll {
-                0% { transform: translateX(0%); }
-                100% { transform: translateX(-50%); }
-            }
+                @keyframes marqueeScroll {
+                    0% { transform: translateX(0%); }
+                    100% { transform: translateX(-50%); }
+                }
 
-            .marquee-inner {
-                display: inline-flex;
-                animation: marqueeScroll 10s linear infinite;
-            }
-        `}</style>
+                .marquee-inner {
+                    display: inline-flex;
+                    animation: marqueeScroll 10s linear infinite;
+                }
+            `}</style>
 
             <div className="marquee-row w-full mx-auto max-w-5xl overflow-hidden relative">
                 <div className="text-center">
-
                     <h1 className='text-3xl h1 sm:text-4xl font-semibold mb-2'>Customer testimonials</h1>
                     <p className='text-gray-500 mb-12 p1'>What Our Users Are Saying</p>
                 </div>
-
 
                 <div className="marquee-inner flex transform-gpu min-w-[200%] pt-10 pb-5">
                     {[...cardsData, ...cardsData].map((card, index) => (
                         <CreateCard key={index} card={card} />
                     ))}
                 </div>
-<<<<<<< HEAD
-=======
-               
->>>>>>> 315addf6205445a73bd5758bf09b61cabd48acb1
-
             </div>
         </>
-    )
-}
+    );
+};
 
-export default Testimonials
+export default Testimonials;
