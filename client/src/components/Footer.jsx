@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import { FaGithub, FaInstagram } from 'react-icons/fa'
+import { Link } from 'react-router-dom';
+import { FaGithub, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -24,15 +24,16 @@ const Footer = () => {
           <FaGithub />
         </a>
         <a
-    href="https://instagram.com/dipinkharayat_03"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="hover:text-pink-600 transition-colors duration-300"
-  >
-    <FaInstagram size={20} />
+          href='https://instagram.com/dipinkharayat_03'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='hover:text-pink-600 transition-colors duration-300'
+        >
+          <FaInstagram />
+        </a>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
