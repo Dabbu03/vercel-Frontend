@@ -76,7 +76,6 @@ const Testimonials = () => {
                     <h1 className='text-3xl h1 sm:text-4xl font-semibold mb-2'>Customer testimonials</h1>
                     <p className='text-gray-500 mb-12 p1'>What Our Users Are Saying</p>
                 </div>
-             <div className="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none sm:bg-gradient-to-r sm:from-white sm:to-transparent"></div>
 
 
                 <div className="marquee-inner flex transform-gpu min-w-[200%] pt-10 pb-5">
@@ -84,7 +83,7 @@ const Testimonials = () => {
                         <CreateCard key={index} card={card} />
                     ))}
                 </div>
-               <div className="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none sm:bg-gradient-to-l sm:from-white sm:to-transparent"></div>
+               
 
             </div>
         </>
