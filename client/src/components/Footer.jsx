@@ -23,6 +23,13 @@ const Footer = () => {
         >
           <FaGithub />
         </a>
+        <a
+    href="https://instagram.com/dipinkharayat_03"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-pink-600 transition-colors duration-300"
+  >
+    <FaInstagram size={20} />
       </div>
     </div>
   )
